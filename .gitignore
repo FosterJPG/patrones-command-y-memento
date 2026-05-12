@@ -1,24 +1,17 @@
-# Compiled class file
-*.class
+# --- RUST ---
+# Evita que se suban archivos muy pesados que se generan al compilar el proyecto Rust.
+# Estos archivos no son necesarios para compartir el código fuente y pueden ocupar mucho espacio en el repositorio.
+/target/
 
-# Log file
-*.log
+# --- IDEs ---
+# Ignora configuraciones personales de VS Code e IntelliJ IDEA.
+.vscode/
+.idea/
 
-# BlueJ files
-*.ctxt
+# --- SISTEMA ---
+# Archivos basura de Windows/Mac
+Thumbs.db
+.DS_Store
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Archivos temporales de edición de PDF (si se generan al editar el PDF)
+~$*.pdf
