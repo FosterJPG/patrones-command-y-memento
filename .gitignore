@@ -1,7 +1,7 @@
 # --- RUST ---
 # Evita que se suban archivos muy pesados que se generan al compilar el proyecto Rust.
 # Estos archivos no son necesarios para compartir el código fuente y pueden ocupar mucho espacio en el repositorio.
-/target/
+target/
 
 # --- IDEs ---
 # Ignora configuraciones personales de VS Code e IntelliJ IDEA.
