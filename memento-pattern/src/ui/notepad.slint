@@ -1,16 +1,14 @@
-import { TextEdit, Button, HorizontalBox, VerticalBox, ScrollView } from "std-widgets.slint";
+import { TextEdit, Button, HorizontalBox, VerticalBox } from "std-widgets.slint";
 
 export component NotepadWindow inherits Window {
     title: "Bloc de Notas";
     preferred-width: 800px;
     preferred-height: 600px;
 
-    // Propiedades que Rust puede leer y escribir
     in-out property <string> content: "";
     in property <bool> can-undo: false;
     in property <bool> can-redo: false;
 
-    // Callbacks que Rust escucha
     callback text-changed(string);
     callback undo-requested();
     callback redo-requested();
@@ -44,7 +42,6 @@ export component NotepadWindow inherits Window {
                     clicked => { root.redo-requested(); }
                 }
 
-                // Separador visual
                 Rectangle { width: 10px; }
 
                 Text {
@@ -56,29 +53,26 @@ export component NotepadWindow inherits Window {
             }
         }
 
-        // Área de texto principal
+        // Área de texto — intercepta Ctrl+Z y Ctrl+Y antes que Slint
         TextEdit {
             text <=> root.content;
             font-size: 14px;
+
             edited(new-text) => {
                 root.text-changed(new-text);
             }
-        }
-    }
 
-    // Captura de atajos de teclado globales
-    forward-focus: focus-scope;
-    focus-scope := FocusScope {
-        key-pressed(event) => {
-            if (event.modifiers.control && event.text == "z") {
-                root.undo-requested();
-                return accept;
+            key-pressed(event) => {
+                if (event.modifiers.control && event.text == "z") {
+                    root.undo-requested();
+                    return accept;
+                }
+                if (event.modifiers.control && event.text == "y") {
+                    root.redo-requested();
+                    return accept;
+                }
+                reject
             }
-            if (event.modifiers.control && event.text == "y") {
-                root.redo-requested();
-                return accept;
-            }
-            reject
         }
     }
 }
