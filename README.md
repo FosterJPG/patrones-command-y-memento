@@ -138,7 +138,7 @@ La logica de deshacer/rehacer sigue fielmente el diagrama del Gang of Four:
 Originator ---crea---> Memento <---o Caretaker
 ```
 
-### Roles (Memento)
+### Roles (Command)
 
 |Clase           |Responsabilidad                                                                     |
 |----------------|------------------------------------------------------------------------------------|
