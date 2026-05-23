@@ -1,4 +1,4 @@
-# patrones-command-y-memento
+# Patrones de diseño: Command y Memento
 
 Implementación de patrones de diseño GoF (Command y Memento )
 
@@ -122,7 +122,7 @@ Los botones se activan y desactivan automaticamente segun el estado del historia
 
 \---
 
-## Patron de Diseno: Command
+## Patron de Diseño: Command
 
 La logica de execute y undo se basan en los tres libros de la bibliografía.
 
@@ -130,7 +130,7 @@ La logica de execute y undo se basan en los tres libros de la bibliografía.
 Cliente ---> Invocador ---> Comando Concreto ---> Receptor
 ```
 
-## Patron de Diseno: Memento (GoF)
+## Patron de Diseño: Memento (GoF)
 
 La logica de deshacer/rehacer sigue fielmente el diagrama del Gang of Four:
 
